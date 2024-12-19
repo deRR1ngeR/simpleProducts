@@ -6,6 +6,27 @@ import { fetcher } from "@/utils/api";
 import { useRouter } from "next/navigation";
 import { Product } from "@/types/product";
 
+export const metadata = {
+  title: "Каталог продуктов",
+  description: "Просмотрите наш широкий ассортимент продуктов.",
+  openGraph: {
+    title: "Каталог продуктов",
+    description: "Просмотрите наш широкий ассортимент продуктов.",
+    url: "https://example.com/catalog",
+    siteName: "Магазин продуктов",
+    images: [
+      {
+        url: "https://example.com/images/catalog-preview.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Каталог продуктов",
+      },
+    ],
+    locale: "ru_RU",
+    type: "website",
+  },
+};
+
 export default function ProductsPage() {
   const router = useRouter();
 
