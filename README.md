@@ -11,4 +11,6 @@ cd ../frontend
 
 yarn dev
 
-Open http:localhost:3000
+Открыть http:localhost:3000
+
+В проекте интегрирована работа с google drive для загрузки и хранения изображений 
