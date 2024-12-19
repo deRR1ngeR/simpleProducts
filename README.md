@@ -2,9 +2,10 @@ How to start it
 
 git clone https://github.com/deRR1ngeR/simpleProducts.git
 
+Запустить докер
 cd /backend
 
-yarn start
+docker-compose up
 
 cd ../frontend
 
