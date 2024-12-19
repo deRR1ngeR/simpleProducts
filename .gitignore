@@ -1,0 +1,14 @@
+/node_modules/*
+/node_modules
+/dist/*
+/dist
+/backend/node_modules/*
+/backend/node_modules
+/backend/src/api/modules/product/google.key.json
+/backend/dist/
+/backend/src/dist
+/fronted/src/dist/*
+/frontend/node_modules/*
+/frontend/node_modules
+/fronted/dist
+ /backend/google.key.json
