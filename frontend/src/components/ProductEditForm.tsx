@@ -49,6 +49,7 @@ export default function ProductEditForm({
         );
       }
     } catch (err: any) {
+      console.error(err);
     } finally {
       setLoading(false);
     }

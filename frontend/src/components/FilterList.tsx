@@ -31,7 +31,7 @@ export default function FilterList({ onFilter }: FilterListProps) {
     }, 500);
 
     return () => clearTimeout(timer);
-  }, [filters, page]);
+  }, [page]);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value, type, checked } = e.target;
