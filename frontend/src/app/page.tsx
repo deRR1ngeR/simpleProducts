@@ -5,33 +5,13 @@ import FilterList from "@/components/FilterList";
 import { fetcher } from "@/utils/api";
 import { useRouter } from "next/navigation";
 import { Product } from "@/types/product";
-
-export const metadata = {
-  title: "Каталог продуктов",
-  description: "Просмотрите наш широкий ассортимент продуктов.",
-  openGraph: {
-    title: "Каталог продуктов",
-    description: "Просмотрите наш широкий ассортимент продуктов.",
-    url: "https://example.com/catalog",
-    siteName: "Магазин продуктов",
-    images: [
-      {
-        url: "https://example.com/images/catalog-preview.jpg",
-        width: 1200,
-        height: 630,
-        alt: "Каталог продуктов",
-      },
-    ],
-    locale: "ru_RU",
-    type: "website",
-  },
-};
+import Image from "next/image";
 
 export default function ProductsPage() {
   const router = useRouter();
 
   const [products, setProducts] = useState<Product[]>([]);
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState<boolean>(false);
   const [error, setError] = useState<string | null>(null);
 
   const fetchFilteredProducts = async (filters: any) => {
@@ -55,7 +35,7 @@ export default function ProductsPage() {
       const response = await fetcher(`/products?${query.toString()}`);
 
       setProducts(response.products);
-    } catch (err) {
+    } catch (err: any) {
       setError(err instanceof Error ? err.message : "Unknown error");
     } finally {
       setLoading(false);
@@ -86,7 +66,7 @@ export default function ProductsPage() {
                 <p>Discounted Price: ${product.discountPrice}</p>
                 <p>SKU: {product.sku}</p>
                 {product.photo && (
-                  <img
+                  <Image
                     src={product.photo}
                     alt={product.name}
                     className="w-32 h-32 object-cover mt-2"

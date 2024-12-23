@@ -1,7 +1,6 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { useRouter } from "next/navigation";
 import ProductEditForm from "@/components/ProductEditForm";
 import { Product } from "@/types/product";
 import { fetcher } from "@/utils/api";
@@ -21,7 +20,7 @@ export default function ProductPage({ params }: Props) {
         const response = await fetcher(`/products/${params.id}`);
 
         setProduct(response);
-      } catch (err) {
+      } catch (err: any) {
         setError("Error fetching product data");
       } finally {
         setLoading(false);
@@ -33,7 +32,6 @@ export default function ProductPage({ params }: Props) {
 
   const handleUpdate = async (updatedProduct: Product) => {
     setProduct(updatedProduct);
-    console.log(updatedProduct);
   };
 
   if (loading) return <div className="p-6">Loading...</div>;

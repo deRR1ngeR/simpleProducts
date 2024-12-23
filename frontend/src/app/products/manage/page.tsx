@@ -1,9 +1,7 @@
 "use client";
 
-import { useState } from "react";
 import { useRouter } from "next/navigation";
 import ProductForm from "@/components/ProductForm";
-import { fetcher } from "@/utils/api";
 
 export default function ManageProductsPage() {
   const router = useRouter();

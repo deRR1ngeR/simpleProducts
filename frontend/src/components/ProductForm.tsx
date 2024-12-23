@@ -30,7 +30,9 @@ export default function ProductForm({ onSubmit }: Props) {
           setPhoto(res[0])
         );
       }
-    } catch (err) {}
+    } catch (err: any) {
+      console.error(err);
+    }
   }
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>

@@ -48,7 +48,7 @@ export default function ProductEditForm({
           setPhoto(res[0])
         );
       }
-    } catch (err) {
+    } catch (err: any) {
     } finally {
       setLoading(false);
     }
@@ -71,7 +71,7 @@ export default function ProductEditForm({
 
       const updatedProduct = await response.json();
       onUpdate({ ...updatedProduct, photo });
-    } catch (error) {
+    } catch (error: any) {
       console.error(error);
     } finally {
       setLoading(false);
