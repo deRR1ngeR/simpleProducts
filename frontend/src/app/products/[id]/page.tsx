@@ -1,23 +1,24 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, use } from "react";
 import ProductEditForm from "@/components/ProductEditForm";
 import { Product } from "@/types/product";
 import { fetcher } from "@/utils/api";
 
-interface Props {
-  params: { id: string };
-}
+type Params = Promise<{ rcdId: string }>;
 
-export default function ProductPage({ params }: Props) {
+export default function ProductPage(props: { params: Params }) {
   const [product, setProduct] = useState<Product | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
+  const params = use(props.params);
+  const rcdId = params.rcdId;
+
   useEffect(() => {
     const fetchProduct = async () => {
       try {
-        const response = await fetcher(`/products/${params.id}`);
+        const response = await fetcher(`/products/${rcdId}`);
 
         setProduct(response);
       } catch (err: any) {
