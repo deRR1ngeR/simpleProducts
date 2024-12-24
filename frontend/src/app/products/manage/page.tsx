@@ -9,7 +9,7 @@ export default function ManageProductsPage() {
   const handleFormSubmit = async (formData: any) => {
     console.log(formData);
 
-    await fetch("https://simpleproducts.railway.internal/products", {
+    await fetch("https://simpleproducts-production.up.railway.app/products", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
